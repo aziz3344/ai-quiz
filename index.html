@@ -112,3 +112,595 @@
     #sparklesCanvas {
       position: fixed;
       inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ===== Rose Frosted Glassmorphism Window ===== */
+    .container {
+      width: 100%;
+      max-width: 430px;
+      background: var(--glass-rose);
+      backdrop-filter: blur(28px) saturate(160%);
+      -webkit-backdrop-filter: blur(28px) saturate(160%);
+      border-radius: 28px;
+      border: 1.5px solid var(--glass-border);
+      box-shadow:
+        0 26px 65px rgba(15, 4, 14, 0.5),
+        0 0 40px rgba(255, 130, 170, 0.22),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.55),
+        inset 0 -1px 12px rgba(255, 143, 177, 0.18);
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      animation: cardEntrance 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    @keyframes cardEntrance {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Top Trust Bar */
+    .top-bar {
+      background: linear-gradient(90deg, rgba(255, 120, 160, 0.45), rgba(255, 165, 195, 0.55), rgba(255, 120, 160, 0.45));
+      background-size: 200% auto;
+      animation: shimmerBar 5s linear infinite;
+      border-bottom: 1px solid rgba(255, 210, 226, 0.28);
+      color: #fff;
+      text-align: center;
+      padding: 11px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes shimmerBar {
+      to { background-position: 200% center; }
+    }
+
+    .content {
+      padding: 26px 22px 28px;
+    }
+
+    /* App Header */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .app-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ffa6c1, #d84b76);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      line-height: 1.1;
+      box-shadow: 0 10px 24px rgba(216, 75, 118, 0.45);
+      flex-shrink: 0;
+      animation: gentleFloat 3.5s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .app-icon span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 0.95;
+      margin-top: 2px;
+    }
+
+    .app-meta h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      color: #fff;
+      margin-bottom: 3px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .app-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* Progress Bar */
+    .progress-wrap {
+      width: 100%;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 33%;
+      background: linear-gradient(90deg, #ffc2d6, #ff6b9a);
+      border-radius: 99px;
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 0 12px rgba(255, 130, 170, 0.75);
+    }
+
+    /* Steps */
+    .step {
+      display: none;
+      animation: fadeUp 0.38s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-badge {
+      display: inline-block;
+      background: rgba(255, 180, 205, 0.22);
+      border: 1px solid rgba(255, 210, 225, 0.35);
+      color: #ffe6ef;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* Frosted Rose Option Buttons */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .opt-btn {
+      width: 100%;
+      text-align: left;
+      background: rgba(255, 220, 232, 0.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 205, 222, 0.32);
+      border-radius: 15px;
+      padding: 15px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .opt-btn:hover, .opt-btn:active {
+      border-color: rgba(255, 225, 236, 0.85);
+      background: rgba(255, 175, 202, 0.32);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 10px 24px rgba(255, 110, 155, 0.28);
+    }
+
+    .opt-btn .arrow {
+      color: #ffd0df;
+      font-size: 19px;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .opt-btn:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* Loading Screen */
+    .loader-box {
+      text-align: center;
+      padding: 28px 10px;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255, 210, 226, 0.22);
+      border-top-color: #ff9ebb;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: spin 0.85s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Final Result Screen */
+    .verse-card {
+      background: rgba(255, 210, 226, 0.18);
+      border: 1px solid rgba(255, 215, 230, 0.35);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 18px;
+      text-align: center;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+
+    .verse-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15.5px;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .verse-ref {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffd0df;
+    }
+
+    .features-list {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .features-list li {
+      font-size: 13.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 600;
+    }
+
+    .check {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: rgba(255, 195, 215, 0.28);
+      border: 1px solid rgba(255, 220, 232, 0.5);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Shimmering CTA Button */
+    .cta-btn {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(135deg, #ff7aa2, #d64572);
+      border: 1px solid rgba(255, 225, 235, 0.55);
+      color: #fff;
+      font-size: 16.5px;
+      font-weight: 700;
+      padding: 16px 20px;
+      border-radius: 15px;
+      box-shadow: 0 12px 30px rgba(214, 69, 114, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulseGlow 2.2s infinite;
+    }
+
+    .cta-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+      transform: skewX(-22deg);
+      animation: shineSweep 2.8s infinite;
+    }
+
+    @keyframes shineSweep {
+      0% { left: -100%; }
+      55%, 100% { left: 150%; }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(255, 122, 162, 0.6); }
+      70% { box-shadow: 0 0 0 14px rgba(255, 122, 162, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 122, 162, 0); }
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .micro-trust {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background Layers -->
+  <div class="bg-wrapper">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <canvas id="sparklesCanvas"></canvas>
+
+  <!-- Rose Frosted Glass Window -->
+  <div class="container">
+    <div class="top-bar">
+      ✨ Trusted by 1,000,000+ Women Worldwide • 100% Free
+    </div>
+
+    <div class="content">
+      <div class="app-header">
+        <div class="app-icon">
+          BIBLE
+          <span>WOMEN'S</span>
+        </div>
+        <div class="app-meta">
+          <h1>Women's Bible</h1>
+          <div class="app-stats">
+            <span class="stars">★ 5.0</span>
+            <span>•</span>
+            <span>1M+ Downloads</span>
+            <span>•</span>
+            <span>Offline</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-fill" id="progressBar"></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step active" id="step1">
+        <span class="step-badge">Question 1 of 3</span>
+        <h2>What does your heart need most today?</h2>
+        <p class="subtitle">Select one to personalize your daily Bible verses & prayer plan.</p>
+        <div class="options">
+          <button class="opt-btn" onclick="nextStep(2, 66)">
+            <span>🕊️ Peace & Relief from Stress</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="nextStep(2, 66)">
+            <span>🙏 Stronger Daily Prayer Habit</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="nextStep(2, 66)">
+            <span>💛 Guidance, Strength & Hope</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="nextStep(2, 66)">
+            <span>📖 Deepen My Bible Knowledge</span>
+            <span class="arrow">›</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step" id="step2">
+        <span class="step-badge">Question 2 of 3</span>
+        <h2>When do you prefer your quiet time with God?</h2>
+        <p class="subtitle">We'll set up gentle reminders for your favorite moment of the day.</p>
+        <div class="options">
+          <button class="opt-btn" onclick="nextStep(3, 90)">
+            <span>🌅 Morning Prayer (Start with peace)</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="nextStep(3, 90)">
+            <span>🌙 Night Prayer (Restful sleep)</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="nextStep(3, 90)">
+            <span>📱 Anytime Offline (Even without Wi-Fi)</span>
+            <span class="arrow">›</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step" id="step3">
+        <span class="step-badge">Quick Bible Check • 3 of 3</span>
+        <h2>Where was Jesus born?</h2>
+        <p class="subtitle">Test your knowledge to unlock your free Women's Bible app.</p>
+        <div class="options">
+          <button class="opt-btn" onclick="startLoading()">
+            <span>✨ Bethlehem</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="startLoading()">
+            <span>🌿 Tiberias</span>
+            <span class="arrow">›</span>
+          </button>
+          <button class="opt-btn" onclick="startLoading()">
+            <span>⛰️ Samaria</span>
+            <span class="arrow">›</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- LOADING STEP -->
+      <div class="step" id="stepLoading">
+        <div class="loader-box">
+          <div class="spinner"></div>
+          <h2>Preparing Your Daily Plan...</h2>
+          <p class="subtitle">Matching your daily verses, offline Bible & guided prayers.</p>
+        </div>
+      </div>
+
+      <!-- FINAL RESULT STEP -->
+      <div class="step" id="stepFinal">
+        <span class="step-badge">🎉 Your Plan is Ready!</span>
+        <h2>Start Your Daily Prayer Journey Free</h2>
+
+        <div class="verse-card">
+          <div class="verse-text">“She is clothed with strength and dignity; she can laugh at the days to come.”</div>
+          <div class="verse-ref">— Proverbs 31:25</div>
+        </div>
+
+        <ul class="features-list">
+          <li><span class="check">✓</span> Daily Morning & Night Guided Prayers</li>
+          <li><span class="check">✓</span> Read or Listen to the Bible Anytime Offline</li>
+          <li><span class="check">✓</span> Fun Bible Quizzes & Relaxing Faith Games</li>
+          <li><span class="check">✓</span> Connect & Support Fellow Christian Women</li>
+        </ul>
+
+        <a href="https://singingfiles.com/show.php?l=0&u=1339522&id=75529" id="offerBtn" class="cta-btn">
+          Install Free on Google Play →
+        </a>
+        <p class="micro-trust">Official Google Play App • Safe & Free Download</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const OFFER_URL = "https://singingfiles.com/show.php?l=0&u=1339522&id=75529";
+    document.getElementById("offerBtn").href = OFFER_URL;
+
+    function nextStep(stepNum, progress) {
+      document.querySelectorAll(".step").forEach(el => el.classList.remove("active"));
+      document.getElementById("step" + stepNum).classList.add("active");
+      document.getElementById("progressBar").style.width = progress + "%";
+    }
+
+    function startLoading() {
+      document.querySelectorAll(".step").forEach(el => el.classList.remove("active"));
+      document.getElementById("stepLoading").classList.add("active");
+      document.getElementById("progressBar").style.width = "100%";
+
+      setTimeout(() => {
+        document.getElementById("stepLoading").classList.remove("active");
+        document.getElementById("stepFinal").classList.add("active");
+      }, 1400);
+    }
+
+    // ===== Canvas Floating Golden & Rose Sparkles =====
+    const canvas = document.getElementById("sparklesCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    const particleCount = 55;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Sparkle {
+      constructor() {
+        this.reset(true);
+      }
+      reset(initial = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = initial ? Math.random() * canvas.height : canvas.height + 15;
+        this.size = Math.random() * 2.6 + 0.8;
+        this.speedY = Math.random() * 0.55 + 0.2;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.alpha = Math.random() * 0.65 + 0.2;
+        this.twinkleSpeed = Math.random() * 0.02 + 0.008;
+        this.twinkleDir = 1;
+        const colors = ["#ffffff", "#ffe2b8", "#ffc2d1", "#ffb3c6"];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        this.alpha += this.twinkleSpeed * this.twinkleDir;
+        if (this.alpha >= 0.9 || this.alpha <= 0.15) this.twinkleDir *= -1;
+        if (this.y < -15) this.reset(false);
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Sparkle());
+    }
+
+    function animateSparkles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateSparkles);
+    }
+    animateSparkles();
+  </script>
+
+</body>
+</html>
