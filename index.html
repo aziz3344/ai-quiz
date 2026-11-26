@@ -7,48 +7,230 @@
   <meta name="description" content="Conteúdo adulto para maiores de 18 anos. Confirme sua idade para continuar.">
   <title>SEXART | Conteúdo Adulto 18+</title>
   <style>
-    :root{--bg:#090610;--panel:#171020;--purple:#7c2cff;--pink:#ff3e83;--yellow:#ffd84d;--muted:#b9aec8}
+    :root{
+      --bg:#090610;
+      --panel:#171020;
+      --purple:#7c2cff;
+      --pink:#ff3e83;
+      --yellow:#ffd84d;
+      --muted:#b9aec8;
+      --green:#22c55e;
+    }
     *{box-sizing:border-box}
-    body{margin:0;background:radial-gradient(circle at 50% -10%,#482071 0,#160d22 38%,var(--bg) 75%);color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+    body{
+      margin:0;
+      background:radial-gradient(circle at 50% -10%,#482071 0,#160d22 38%,var(--bg) 75%);
+      color:#fff;
+      font-family:Arial,Helvetica,sans-serif;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    /* خلفية متوهجة خفيفة */
+    body::before{
+      content:"";
+      position:fixed;
+      top:-120px;left:50%;
+      width:600px;height:600px;
+      transform:translateX(-50%);
+      background:radial-gradient(circle,rgba(255,62,131,.18),rgba(124,44,255,.12),transparent 70%);
+      pointer-events:none;
+      z-index:-1;
+      animation:bgPulse 6s ease-in-out infinite alternate;
+    }
+    @keyframes bgPulse{
+      0%{transform:translateX(-50%) scale(1);opacity:.7}
+      100%{transform:translateX(-50%) scale(1.18);opacity:1}
+    }
+
     .wrap{width:min(960px,92%);margin:auto}
-    header{display:flex;justify-content:center;align-items:center;padding:24px 0 12px}
-    .logo{width:min(230px,65vw);height:auto;object-fit:contain}
-    .hero{padding:22px 0 30px;text-align:center}
-    .tag{display:inline-block;border:1px solid #a66cff;background:#31164d;color:#e9d7ff;border-radius:99px;padding:7px 14px;font-size:12px;font-weight:800;letter-spacing:1.5px}
-    h1{font-size:clamp(30px,6vw,54px);line-height:1.04;margin:17px auto 12px;max-width:760px}
-    h1 span{color:var(--yellow);text-shadow:0 3px 22px #ffbd3b55}
-    .sub{color:var(--muted);font-size:clamp(15px,2.5vw,18px);line-height:1.55;max-width:620px;margin:0 auto}
-    .feature{margin:24px auto 18px;max-width:820px;border:1px solid #ffffff24;border-radius:22px;overflow:hidden;background:#100a18;box-shadow:0 18px 55px #0009}
-    .feature img{display:block;width:100%;max-height:360px;object-fit:cover;background:#1f142d}
-    .feature-foot{padding:17px 18px 20px}
-    .feature-foot strong{display:block;font-size:19px;margin-bottom:7px}
-    .feature-foot p{color:var(--muted);margin:0;font-size:14px;line-height:1.5}
-    .cta{display:inline-flex;justify-content:center;align-items:center;gap:10px;margin:20px auto 8px;padding:16px 34px;min-width:min(320px,90%);border:0;border-radius:12px;background:linear-gradient(100deg,#ffb92e,var(--yellow));color:#180d20;text-decoration:none;font-size:19px;font-weight:900;letter-spacing:.6px;box-shadow:0 8px 28px #ffbf3150;cursor:pointer;transition:.2s}
-    .cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    header{display:flex;justify-content:center;align-items:center;padding:20px 0 8px;animation:fadeDown .6s ease}
+    .logo{width:min(220px,60vw);height:auto;object-fit:contain;filter:drop-shadow(0 4px 18px rgba(124,44,255,.35))}
+
+    .hero{padding:14px 0 22px;text-align:center;animation:fadeUp .7s ease}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid #a66cff;
+      background:rgba(49,22,77,.85);
+      color:#e9d7ff;
+      border-radius:99px;
+      padding:7px 15px;
+      font-size:12px;font-weight:800;letter-spacing:1.2px;
+      box-shadow:0 0 20px rgba(124,44,255,.25);
+    }
+    .live-dot{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 10px var(--green);
+      animation:blink 1.4s infinite;
+    }
+    @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+
+    h1{font-size:clamp(28px,6vw,52px);line-height:1.06;margin:15px auto 10px;max-width:760px}
+    h1 span{color:var(--yellow);text-shadow:0 3px 25px #ffbd3b66}
+    .sub{color:var(--muted);font-size:clamp(14px,2.5vw,17px);line-height:1.5;max-width:600px;margin:0 auto}
+
+    /* البطاقة الرئيسية */
+    .feature{
+      margin:20px auto 18px;
+      max-width:820px;
+      border:1px solid rgba(255,216,77,.28);
+      border-radius:22px;
+      overflow:hidden;
+      background:linear-gradient(180deg,#160e22,#0f0917);
+      box-shadow:0 18px 55px rgba(0,0,0,.65);
+      animation:fadeUp .85s ease;
+    }
+    .media-box{position:relative;display:block;overflow:hidden;text-decoration:none}
+    .feature img{
+      display:block;width:100%;max-height:360px;object-fit:cover;
+      background:#1f142d;
+      transition:transform .45s ease;
+    }
+    .media-box:hover img{transform:scale(1.04)}
+    .play-overlay{
+      position:absolute;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,transparent 40%,rgba(9,6,16,.75));
+    }
+    .play-btn{
+      width:68px;height:68px;border-radius:50%;
+      background:rgba(255,216,77,.92);
+      color:#170d20;
+      display:flex;align-items:center;justify-content:center;
+      font-size:26px;padding-left:4px;
+      box-shadow:0 0 0 0 rgba(255,216,77,.65);
+      animation:pulseRing 2s infinite;
+      transition:transform .2s;
+    }
+    .media-box:hover .play-btn{transform:scale(1.1)}
+    .badge-hd{
+      position:absolute;top:12px;right:12px;
+      background:rgba(9,6,16,.8);
+      border:1px solid rgba(255,255,255,.22);
+      color:var(--yellow);
+      font-size:11px;font-weight:900;
+      padding:4px 9px;border-radius:6px;letter-spacing:.8px;
+    }
+
+    .feature-foot{padding:18px 18px 22px;text-align:center}
+    .feature-foot strong{display:block;font-size:20px;margin-bottom:7px}
+    .feature-foot p{color:var(--muted);margin:0 auto;max-width:560px;font-size:14px;line-height:1.5}
+
+    /* زر CTA مع لمعة ونبض */
+    .cta{
+      position:relative;overflow:hidden;
+      display:inline-flex;justify-content:center;align-items:center;gap:10px;
+      margin:20px auto 8px;
+      padding:16px 34px;
+      min-width:min(330px,92%);
+      border:0;border-radius:14px;
+      background:linear-gradient(100deg,#ffb72b,var(--yellow),#ffe885);
+      color:#180d20;text-decoration:none;
+      font-size:19px;font-weight:900;letter-spacing:.6px;
+      box-shadow:0 8px 30px rgba(255,191,49,.42);
+      cursor:pointer;
+      transition:transform .2s,filter .2s;
+      animation:ctaPulse 2.4s infinite;
+    }
+    .cta::after{
+      content:"";
+      position:absolute;top:0;left:-100%;
+      width:60%;height:100%;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+      transform:skewX(-25deg);
+      animation:shimmer 3s infinite;
+    }
+    .cta:hover{transform:translateY(-3px) scale(1.02);filter:brightness(1.06)}
+
+    @keyframes shimmer{
+      0%{left:-100%}
+      35%,100%{left:150%}
+    }
+    @keyframes ctaPulse{
+      0%,100%{box-shadow:0 8px 28px rgba(255,191,49,.38)}
+      50%{box-shadow:0 10px 40px rgba(255,191,49,.72)}
+    }
+    @keyframes pulseRing{
+      0%{box-shadow:0 0 0 0 rgba(255,216,77,.65)}
+      70%{box-shadow:0 0 0 18px rgba(255,216,77,0)}
+      100%{box-shadow:0 0 0 0 rgba(255,216,77,0)}
+    }
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(18px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    @keyframes fadeDown{
+      from{opacity:0;transform:translateY(-12px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
     .tiny{font-size:11px;color:#988ba6;margin:9px auto 0;line-height:1.5}
-    .gallery-title{text-align:center;font-size:21px;margin:35px 0 15px}
+
+    /* Gallery */
+    .gallery-title{text-align:center;font-size:21px;margin:32px 0 16px}
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
-    .tile{display:block;text-decoration:none;border:1px solid #ffffff20;background:#1a1024;border-radius:15px;overflow:hidden;transition:transform .2s,border-color .2s}
-    .tile:hover{transform:translateY(-3px);border-color:var(--yellow)}
-    .tile img{display:block;width:100%;height:170px;object-fit:cover;background:#261838}
-    .tile div{padding:12px;color:#e9dff2;font-size:13px;font-weight:700;text-align:center}
-    .bottom{text-align:center;padding:28px 0 35px;color:#95899e;font-size:11px;line-height:1.7}
+    .tile{
+      position:relative;display:block;text-decoration:none;
+      border:1px solid #ffffff20;background:#1a1024;
+      border-radius:16px;overflow:hidden;
+      transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    }
+    .tile:hover{
+      transform:translateY(-4px);
+      border-color:var(--yellow);
+      box-shadow:0 12px 30px rgba(255,216,77,.18);
+    }
+    .tile-media{position:relative;overflow:hidden}
+    .tile img{display:block;width:100%;height:175px;object-fit:cover;background:#261838;transition:transform .4s ease}
+    .tile:hover img{transform:scale(1.07)}
+    .tile-play{
+      position:absolute;bottom:10px;right:10px;
+      width:36px;height:36px;border-radius:50%;
+      background:rgba(255,216,77,.92);color:#170d20;
+      display:flex;align-items:center;justify-content:center;
+      font-size:14px;padding-left:2px;font-weight:900;
+      box-shadow:0 4px 12px rgba(0,0,0,.5);
+    }
+    .tile-label{padding:12px;color:#f3ebfb;font-size:13px;font-weight:700;text-align:center}
+
+    .bottom{text-align:center;padding:26px 0 35px;color:#95899e;font-size:11px;line-height:1.7}
     .bottom a{color:#cbb4e7}
-    .age-overlay{position:fixed;inset:0;z-index:10;background:#07040def;display:flex;align-items:center;justify-content:center;padding:20px}
-    .age-box{width:min(440px,100%);padding:30px 24px;text-align:center;border:1px solid #8d50c8;border-radius:22px;background:linear-gradient(145deg,#241332,#100b18);box-shadow:0 20px 80px #000}
-    .age-mark{font-size:48px;font-weight:900;color:var(--yellow);margin-bottom:8px}
-    .age-box h2{font-size:25px;margin:8px 0}
+
+    /* بوابة التحقق من العمر 18+ */
+    .age-overlay{
+      position:fixed;inset:0;z-index:20;
+      background:rgba(7,4,13,.94);
+      backdrop-filter:blur(8px);
+      display:flex;align-items:center;justify-content:center;padding:20px;
+    }
+    .age-box{
+      width:min(440px,100%);padding:30px 24px;text-align:center;
+      border:1px solid #8d50c8;border-radius:22px;
+      background:linear-gradient(145deg,#241332,#100b18);
+      box-shadow:0 20px 80px #000;
+      animation:fadeUp .35s ease;
+    }
+    .age-mark{font-size:48px;font-weight:900;color:var(--yellow);margin-bottom:8px;text-shadow:0 0 25px rgba(255,216,77,.35)}
+    .age-box h2{font-size:24px;margin:8px 0}
     .age-box p{color:#c5b8d0;line-height:1.55;font-size:14px}
     .age-actions{display:grid;gap:10px;margin-top:20px}
-    .age-actions button{padding:14px;border:0;border-radius:10px;font-size:15px;font-weight:900;cursor:pointer}
-    .yes{background:var(--yellow);color:#170d20}
+    .age-actions button{padding:15px;border:0;border-radius:12px;font-size:15px;font-weight:900;cursor:pointer;transition:transform .15s}
+    .yes{
+      background:linear-gradient(100deg,#ffb72b,var(--yellow));
+      color:#170d20;
+      box-shadow:0 6px 24px rgba(255,191,49,.4);
+      animation:ctaPulse 2s infinite;
+    }
+    .yes:hover{transform:scale(1.02)}
     .no{background:#ffffff12;color:#eee;border:1px solid #ffffff2b!important}
     .hidden{display:none!important}
+
     @media(max-width:650px){
       .gallery{grid-template-columns:1fr}
-      .tile img{height:190px}
-      .hero{padding-top:15px}
-      .feature img{max-height:250px}
+      .tile img{height:195px}
+      .hero{padding-top:10px}
+      .feature img{max-height:240px}
+      .play-btn{width:58px;height:58px;font-size:22px}
     }
   </style>
 </head>
@@ -59,7 +241,7 @@
       <h2 id="ageTitle">Conteúdo exclusivo para adultos</h2>
       <p>Este site apresenta material destinado exclusivamente a pessoas com 18 anos ou mais. Você confirma que tem pelo menos 18 anos?</p>
       <div class="age-actions">
-        <button class="yes" id="confirmAge">SIM, TENHO 18 ANOS OU MAIS</button>
+        <button class="yes" id="confirmAge">SIM, TENHO 18 ANOS OU MAIS ➜</button>
         <button class="no" id="leavePage">NÃO, SAIR</button>
       </div>
       <p class="tiny">Ao continuar, você confirma sua idade legal no local onde está acessando.</p>
@@ -72,34 +254,52 @@
 
   <main class="wrap">
     <section class="hero">
-      <span class="tag">ÁREA 18+ · CONTEÚDO ADULTO</span>
+      <span class="tag"><span class="live-dot"></span> ÁREA 18+ · ACESSO LIBERADO</span>
       <h1>Explore o universo <span>SEXART</span></h1>
-      <p class="sub">Descubra a página oficial do conteúdo adulto e veja mais detalhes antes de continuar.</p>
+      <p class="sub">Descubra o conteúdo exclusivo em HD e assista agora mesmo na página oficial.</p>
     </section>
 
     <section class="feature">
-      <img src="YtBXSd7sPAdGiaoIn8mRtVKeAK6KdR3kcLvaEaAc.jpg" alt="Banner promocional SEXART para maiores de 18 anos">
+      <a class="media-box" href="https://lzygaeg.pro/cl/bc07bfb400bb1150?p1={click_id}&p2={format}&source=trafficstars&site={site_id}" rel="nofollow sponsored">
+        <span class="badge-hd">4K · 18+</span>
+        <img src="YtBXSd7sPAdGiaoIn8mRtVKeAK6KdR3kcLvaEaAc.jpg" alt="Banner promocional SEXART para maiores de 18 anos">
+        <div class="play-overlay">
+          <div class="play-btn">▶</div>
+        </div>
+      </a>
       <div class="feature-foot">
-        <strong>Quer conhecer mais?</strong>
-        <p>Toque no botão abaixo para acessar a página do parceiro. A disponibilidade e as condições podem variar conforme a região.</p>
-        <a class="cta" id="mainCta" href="https://lzygaeg.pro/cl/bc07bfb400bb1150?p1={click_id}&p2={format}&source=trafficstars&site={site_id}" rel="nofollow sponsored">VER MAIS <span aria-hidden="true">➜</span></a>
-        <div class="tiny">Acesso restrito a maiores de 18 anos.</div>
+        <strong>Quer assistir sem limites?</strong>
+        <p>Toque no botão abaixo para liberar o acesso imediato à página do parceiro.</p>
+        <a class="cta" id="mainCta" href="https://lzygaeg.pro/cl/bc07bfb400bb1150?p1={click_id}&p2={format}&source=trafficstars&site={site_id}" rel="nofollow sponsored">LIBERAR ACESSO AGORA <span aria-hidden="true">➜</span></a>
+        <div class="tiny">Acesso restrito a maiores de 18 anos · Carregamento rápido.</div>
       </div>
     </section>
 
-    <h2 class="gallery-title">Explore os destaques</h2>
+    <h2 class="gallery-title">Destaques mais assistidos 🔥</h2>
     <section class="gallery" aria-label="Banners promocionais">
       <a class="tile" href="https://lzygaeg.pro/cl/bc07bfb400bb1150?p1={click_id}&p2={format}&source=trafficstars&site={site_id}" rel="nofollow sponsored">
-        <img src="zk8gK5T7cleHlRZM7Nn41Oh8Q340b1w8M1EA99Bv.jpg" alt="Banner SEXART">
-        <div>Conteúdo adulto 18+</div>
+        <div class="tile-media">
+          <span class="badge-hd">HD</span>
+          <img src="zk8gK5T7cleHlRZM7Nn41Oh8Q340b1w8M1EA99Bv.jpg" alt="Banner SEXART">
+          <div class="tile-play">▶</div>
+        </div>
+        <div class="tile-label">Conteúdo adulto 18+</div>
       </a>
       <a class="tile" href="https://lzygaeg.pro/cl/bc07bfb400bb1150?p1={click_id}&p2={format}&source=trafficstars&site={site_id}" rel="nofollow sponsored">
-        <img src="paDCyasnAzTSamg5F2udVbqrlzR9JFOLJJWTjEag.jpg" alt="Banner promocional SEXART">
-        <div>Ver mais</div>
+        <div class="tile-media">
+          <span class="badge-hd">NOVO</span>
+          <img src="paDCyasnAzTSamg5F2udVbqrlzR9JFOLJJWTjEag.jpg" alt="Banner promocional SEXART">
+          <div class="tile-play">▶</div>
+        </div>
+        <div class="tile-label">Ver coleção completa</div>
       </a>
       <a class="tile" href="https://lzygaeg.pro/cl/bc07bfb400bb1150?p1={click_id}&p2={format}&source=trafficstars&site={site_id}" rel="nofollow sponsored">
-        <img src="xOHOkjn7DdhIoz0cfm4KLOVEN85hcDu1xusyAERi.jpg" alt="Banner XXX vídeos">
-        <div>Área para adultos</div>
+        <div class="tile-media">
+          <span class="badge-hd">VIP</span>
+          <img src="xOHOkjn7DdhIoz0cfm4KLOVEN85hcDu1xusyAERi.jpg" alt="Banner XXX vídeos">
+          <div class="tile-play">▶</div>
+        </div>
+        <div class="tile-label">Área exclusiva para adultos</div>
       </a>
     </section>
 
