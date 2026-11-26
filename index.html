@@ -1,706 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Women's Bible — Your Daily Prayer & Peace</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Conteúdo adulto para maiores de 18 anos. Confirme sua idade para continuar.">
+  <title>SEXART | Conteúdo Adulto 18+</title>
   <style>
-    :root {
-      --primary: #ff8fb1;
-      --primary-dark: #d9527a;
-      --glass-rose: linear-gradient(145deg, rgba(255, 182, 206, 0.28), rgba(224, 105, 142, 0.16));
-      --glass-border: rgba(255, 205, 222, 0.45);
-      --text-main: #ffffff;
-      --text-muted: rgba(255, 232, 240, 0.85);
-      --gold: #ffd166;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      position: relative;
-      overflow-x: hidden;
-      background: #1a0f19;
-    }
-
-    /* ===== Animated Celestial Rose-Gold Background ===== */
-    .bg-wrapper {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      background: linear-gradient(135deg, #21101f 0%, #4b1d38 45%, #8d3d5e 80%, #d47a92 100%);
-      background-size: 200% 200%;
-      animation: bgGradientMove 14s ease infinite;
-    }
-
-    @keyframes bgGradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Glowing Floating Orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: 0.65;
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    .orb-1 {
-      width: 340px;
-      height: 340px;
-      background: radial-gradient(circle, #ff96b9, #d94c7a);
-      top: -80px;
-      left: -80px;
-      animation: floatOrb1 12s ease-in-out infinite alternate;
-    }
-
-    .orb-2 {
-      width: 310px;
-      height: 310px;
-      background: radial-gradient(circle, #ffd194, #d47d55);
-      bottom: -90px;
-      right: -70px;
-      animation: floatOrb2 15s ease-in-out infinite alternate;
-    }
-
-    .orb-3 {
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, #f582ae, #9d3c72);
-      top: 38%;
-      left: 52%;
-      animation: floatOrb3 11s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatOrb1 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(65px, 85px) scale(1.2); }
-    }
-
-    @keyframes floatOrb2 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-75px, -65px) scale(1.22); }
-    }
-
-    @keyframes floatOrb3 {
-      0% { transform: translate(0, 0) scale(0.95); }
-      100% { transform: translate(-55px, 50px) scale(1.18); }
-    }
-
-    /* Interactive Light Particles Canvas */
-    #sparklesCanvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* ===== Rose Frosted Glassmorphism Window ===== */
-    .container {
-      width: 100%;
-      max-width: 430px;
-      background: var(--glass-rose);
-      backdrop-filter: blur(28px) saturate(160%);
-      -webkit-backdrop-filter: blur(28px) saturate(160%);
-      border-radius: 28px;
-      border: 1.5px solid var(--glass-border);
-      box-shadow:
-        0 26px 65px rgba(15, 4, 14, 0.5),
-        0 0 40px rgba(255, 130, 170, 0.22),
-        inset 0 1.5px 1px rgba(255, 255, 255, 0.55),
-        inset 0 -1px 12px rgba(255, 143, 177, 0.18);
-      overflow: hidden;
-      position: relative;
-      z-index: 2;
-      animation: cardEntrance 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
-
-    @keyframes cardEntrance {
-      from { opacity: 0; transform: translateY(20px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Top Trust Bar */
-    .top-bar {
-      background: linear-gradient(90deg, rgba(255, 120, 160, 0.45), rgba(255, 165, 195, 0.55), rgba(255, 120, 160, 0.45));
-      background-size: 200% auto;
-      animation: shimmerBar 5s linear infinite;
-      border-bottom: 1px solid rgba(255, 210, 226, 0.28);
-      color: #fff;
-      text-align: center;
-      padding: 11px 16px;
-      font-size: 12.5px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes shimmerBar {
-      to { background-position: 200% center; }
-    }
-
-    .content {
-      padding: 26px 22px 28px;
-    }
-
-    /* App Header */
-    .app-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-
-    .app-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #ffa6c1, #d84b76);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 13.5px;
-      line-height: 1.1;
-      box-shadow: 0 10px 24px rgba(216, 75, 118, 0.45);
-      flex-shrink: 0;
-      animation: gentleFloat 3.5s ease-in-out infinite;
-    }
-
-    @keyframes gentleFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-
-    .app-icon span {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      opacity: 0.95;
-      margin-top: 2px;
-    }
-
-    .app-meta h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 21px;
-      color: #fff;
-      margin-bottom: 3px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .app-stats {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .stars {
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    /* Progress Bar */
-    .progress-wrap {
-      width: 100%;
-      height: 7px;
-      background: rgba(255, 255, 255, 0.18);
-      border-radius: 99px;
-      overflow: hidden;
-      margin-bottom: 22px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 33%;
-      background: linear-gradient(90deg, #ffc2d6, #ff6b9a);
-      border-radius: 99px;
-      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-      box-shadow: 0 0 12px rgba(255, 130, 170, 0.75);
-    }
-
-    /* Steps */
-    .step {
-      display: none;
-      animation: fadeUp 0.38s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
-
-    .step.active {
-      display: block;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .step-badge {
-      display: inline-block;
-      background: rgba(255, 180, 205, 0.22);
-      border: 1px solid rgba(255, 210, 225, 0.35);
-      color: #ffe6ef;
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 99px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 23px;
-      line-height: 1.3;
-      margin-bottom: 10px;
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    /* Frosted Rose Option Buttons */
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-    }
-
-    .opt-btn {
-      width: 100%;
-      text-align: left;
-      background: rgba(255, 220, 232, 0.16);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1.5px solid rgba(255, 205, 222, 0.32);
-      border-radius: 15px;
-      padding: 15px 16px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.22s ease;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .opt-btn:hover, .opt-btn:active {
-      border-color: rgba(255, 225, 236, 0.85);
-      background: rgba(255, 175, 202, 0.32);
-      transform: translateY(-2px) scale(1.01);
-      box-shadow: 0 10px 24px rgba(255, 110, 155, 0.28);
-    }
-
-    .opt-btn .arrow {
-      color: #ffd0df;
-      font-size: 19px;
-      font-weight: 700;
-      transition: transform 0.2s ease;
-    }
-
-    .opt-btn:hover .arrow {
-      transform: translateX(3px);
-    }
-
-    /* Loading Screen */
-    .loader-box {
-      text-align: center;
-      padding: 28px 10px;
-    }
-
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 4px solid rgba(255, 210, 226, 0.22);
-      border-top-color: #ff9ebb;
-      border-radius: 50%;
-      margin: 0 auto 18px;
-      animation: spin 0.85s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Final Result Screen */
-    .verse-card {
-      background: rgba(255, 210, 226, 0.18);
-      border: 1px solid rgba(255, 215, 230, 0.35);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 18px;
-      text-align: center;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
-    }
-
-    .verse-text {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 15.5px;
-      color: #fff;
-      line-height: 1.5;
-      margin-bottom: 6px;
-    }
-
-    .verse-ref {
-      font-size: 12px;
-      font-weight: 700;
-      color: #ffd0df;
-    }
-
-    .features-list {
-      list-style: none;
-      margin-bottom: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-    .features-list li {
-      font-size: 13.5px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-weight: 600;
-    }
-
-    .check {
-      width: 21px;
-      height: 21px;
-      border-radius: 50%;
-      background: rgba(255, 195, 215, 0.28);
-      border: 1px solid rgba(255, 220, 232, 0.5);
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* Shimmering CTA Button */
-    .cta-btn {
-      position: relative;
-      overflow: hidden;
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      background: linear-gradient(135deg, #ff7aa2, #d64572);
-      border: 1px solid rgba(255, 225, 235, 0.55);
-      color: #fff;
-      font-size: 16.5px;
-      font-weight: 700;
-      padding: 16px 20px;
-      border-radius: 15px;
-      box-shadow: 0 12px 30px rgba(214, 69, 114, 0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      animation: pulseGlow 2.2s infinite;
-    }
-
-    .cta-btn::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
-      transform: skewX(-22deg);
-      animation: shineSweep 2.8s infinite;
-    }
-
-    @keyframes shineSweep {
-      0% { left: -100%; }
-      55%, 100% { left: 150%; }
-    }
-
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 0 0 rgba(255, 122, 162, 0.6); }
-      70% { box-shadow: 0 0 0 14px rgba(255, 122, 162, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 122, 162, 0); }
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .micro-trust {
-      text-align: center;
-      font-size: 11.5px;
-      color: var(--text-muted);
-      margin-top: 12px;
-      font-weight: 500;
-    }
+    :root{--bg:#090610;--panel:#171020;--purple:#7c2cff;--pink:#ff3e83;--yellow:#ffd84d;--muted:#b9aec8}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 50% -10%,#482071 0,#160d22 38%,var(--bg) 75%);color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+    .wrap{width:min(960px,92%);margin:auto}
+    header{display:flex;justify-content:center;align-items:center;padding:24px 0 12px}
+    .logo{width:min(230px,65vw);height:auto;object-fit:contain}
+    .hero{padding:22px 0 30px;text-align:center}
+    .tag{display:inline-block;border:1px solid #a66cff;background:#31164d;color:#e9d7ff;border-radius:99px;padding:7px 14px;font-size:12px;font-weight:800;letter-spacing:1.5px}
+    h1{font-size:clamp(30px,6vw,54px);line-height:1.04;margin:17px auto 12px;max-width:760px}
+    h1 span{color:var(--yellow);text-shadow:0 3px 22px #ffbd3b55}
+    .sub{color:var(--muted);font-size:clamp(15px,2.5vw,18px);line-height:1.55;max-width:620px;margin:0 auto}
+    .feature{margin:24px auto 18px;max-width:820px;border:1px solid #ffffff24;border-radius:22px;overflow:hidden;background:#100a18;box-shadow:0 18px 55px #0009}
+    .feature img{display:block;width:100%;max-height:360px;object-fit:cover}
+    .feature-foot{padding:17px 18px 20px}
+    .feature-foot strong{display:block;font-size:19px;margin-bottom:7px}
+    .feature-foot p{color:var(--muted);margin:0;font-size:14px;line-height:1.5}
+    .cta{display:inline-flex;justify-content:center;align-items:center;gap:10px;margin:20px auto 8px;padding:16px 34px;min-width:min(320px,90%);border:0;border-radius:12px;background:linear-gradient(100deg,#ffb92e,var(--yellow));color:#180d20;text-decoration:none;font-size:19px;font-weight:900;letter-spacing:.6px;box-shadow:0 8px 28px #ffbf3150;cursor:pointer;transition:.2s}
+    .cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    .tiny{font-size:11px;color:#988ba6;margin:9px auto 0;line-height:1.5}
+    .gallery-title{text-align:center;font-size:21px;margin:35px 0 15px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+    .tile{border:1px solid #ffffff20;background:#1a1024;border-radius:15px;overflow:hidden}
+    .tile img{display:block;width:100%;height:160px;object-fit:cover}
+    .tile div{padding:10px 12px;color:#e9dff2;font-size:12px;font-weight:700}
+    .bottom{text-align:center;padding:28px 0 35px;color:#95899e;font-size:11px;line-height:1.7}
+    .bottom a{color:#cbb4e7}
+    .age-overlay{position:fixed;inset:0;z-index:10;background:#07040deF;display:flex;align-items:center;justify-content:center;padding:20px}
+    .age-box{width:min(440px,100%);padding:30px 24px;text-align:center;border:1px solid #8d50c8;border-radius:22px;background:linear-gradient(145deg,#241332,#100b18);box-shadow:0 20px 80px #000}
+    .age-mark{font-size:48px;font-weight:1000;color:var(--yellow);margin-bottom:8px}
+    .age-box h2{font-size:25px;margin:8px 0}
+    .age-box p{color:#c5b8d0;line-height:1.55;font-size:14px}
+    .age-actions{display:grid;gap:10px;margin-top:20px}
+    .age-actions button{padding:14px;border:0;border-radius:10px;font-size:15px;font-weight:900;cursor:pointer}
+    .yes{background:var(--yellow);color:#170d20}
+    .no{background:#ffffff12;color:#eee;border:1px solid #ffffff2b!important}
+    .hidden{display:none!important}
+    @media(max-width:650px){.gallery{grid-template-columns:repeat(2,1fr)}.tile img{height:130px}.hero{padding-top:15px}.feature img{max-height:250px}}
   </style>
 </head>
 <body>
-
-  <!-- Animated Background Layers -->
-  <div class="bg-wrapper">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-  <canvas id="sparklesCanvas"></canvas>
-
-  <!-- Rose Frosted Glass Window -->
-  <div class="container">
-    <div class="top-bar">
-      ✨ Trusted by 1,000,000+ Women Worldwide • 100% Free
-    </div>
-
-    <div class="content">
-      <div class="app-header">
-        <div class="app-icon">
-          BIBLE
-          <span>WOMEN'S</span>
-        </div>
-        <div class="app-meta">
-          <h1>Women's Bible</h1>
-          <div class="app-stats">
-            <span class="stars">★ 5.0</span>
-            <span>•</span>
-            <span>1M+ Downloads</span>
-            <span>•</span>
-            <span>Offline</span>
-          </div>
-        </div>
+  <div class="age-overlay" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+    <div class="age-box">
+      <div class="age-mark">18+</div>
+      <h2 id="ageTitle">Conteúdo exclusivo para adultos</h2>
+      <p>Este site apresenta material destinado exclusivamente a pessoas com 18 anos ou mais. Você confirma que tem pelo menos 18 anos?</p>
+      <div class="age-actions">
+        <button class="yes" id="confirmAge">SIM, TENHO 18 ANOS OU MAIS</button>
+        <button class="no" id="leavePage">NÃO, SAIR</button>
       </div>
-
-      <div class="progress-wrap">
-        <div class="progress-fill" id="progressBar"></div>
-      </div>
-
-      <!-- STEP 1 -->
-      <div class="step active" id="step1">
-        <span class="step-badge">Question 1 of 3</span>
-        <h2>What does your heart need most today?</h2>
-        <p class="subtitle">Select one to personalize your daily Bible verses & prayer plan.</p>
-        <div class="options">
-          <button class="opt-btn" onclick="nextStep(2, 66)">
-            <span>🕊️ Peace & Relief from Stress</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="nextStep(2, 66)">
-            <span>🙏 Stronger Daily Prayer Habit</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="nextStep(2, 66)">
-            <span>💛 Guidance, Strength & Hope</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="nextStep(2, 66)">
-            <span>📖 Deepen My Bible Knowledge</span>
-            <span class="arrow">›</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- STEP 2 -->
-      <div class="step" id="step2">
-        <span class="step-badge">Question 2 of 3</span>
-        <h2>When do you prefer your quiet time with God?</h2>
-        <p class="subtitle">We'll set up gentle reminders for your favorite moment of the day.</p>
-        <div class="options">
-          <button class="opt-btn" onclick="nextStep(3, 90)">
-            <span>🌅 Morning Prayer (Start with peace)</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="nextStep(3, 90)">
-            <span>🌙 Night Prayer (Restful sleep)</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="nextStep(3, 90)">
-            <span>📱 Anytime Offline (Even without Wi-Fi)</span>
-            <span class="arrow">›</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- STEP 3 -->
-      <div class="step" id="step3">
-        <span class="step-badge">Quick Bible Check • 3 of 3</span>
-        <h2>Where was Jesus born?</h2>
-        <p class="subtitle">Test your knowledge to unlock your free Women's Bible app.</p>
-        <div class="options">
-          <button class="opt-btn" onclick="startLoading()">
-            <span>✨ Bethlehem</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="startLoading()">
-            <span>🌿 Tiberias</span>
-            <span class="arrow">›</span>
-          </button>
-          <button class="opt-btn" onclick="startLoading()">
-            <span>⛰️ Samaria</span>
-            <span class="arrow">›</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- LOADING STEP -->
-      <div class="step" id="stepLoading">
-        <div class="loader-box">
-          <div class="spinner"></div>
-          <h2>Preparing Your Daily Plan...</h2>
-          <p class="subtitle">Matching your daily verses, offline Bible & guided prayers.</p>
-        </div>
-      </div>
-
-      <!-- FINAL RESULT STEP -->
-      <div class="step" id="stepFinal">
-        <span class="step-badge">🎉 Your Plan is Ready!</span>
-        <h2>Start Your Daily Prayer Journey Free</h2>
-
-        <div class="verse-card">
-          <div class="verse-text">“She is clothed with strength and dignity; she can laugh at the days to come.”</div>
-          <div class="verse-ref">— Proverbs 31:25</div>
-        </div>
-
-        <ul class="features-list">
-          <li><span class="check">✓</span> Daily Morning & Night Guided Prayers</li>
-          <li><span class="check">✓</span> Read or Listen to the Bible Anytime Offline</li>
-          <li><span class="check">✓</span> Fun Bible Quizzes & Relaxing Faith Games</li>
-          <li><span class="check">✓</span> Connect & Support Fellow Christian Women</li>
-        </ul>
-
-        <a href="https://singingfiles.com/show.php?l=0&u=1339522&id=75529" id="offerBtn" class="cta-btn">
-          Install Free on Google Play →
-        </a>
-        <p class="micro-trust">Official Google Play App • Safe & Free Download</p>
-      </div>
+      <p class="tiny">Ao continuar, você confirma sua idade legal no local onde está acessando.</p>
     </div>
   </div>
+
+  <header class="wrap">
+    <img class="logo" src="assets/mZ4EbUVMSbotYgHEkKTWnU6A1tluPrbEzbJD2KFX.png" alt="SEXART">
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="tag">ÁREA 18+ · CONTEÚDO ADULTO</span>
+      <h1>Explore o universo <span>SEXART</span></h1>
+      <p class="sub">Descubra a página oficial do conteúdo adulto e veja mais detalhes antes de continuar.</p>
+    </section>
+
+    <section class="feature">
+      <img src="assets/YtBXSd7sPAdGiaoIn8mRtVKeAK6KdR3kcLvaEaAc.jpg" alt="Banner promocional SEXART para maiores de 18 anos">
+      <div class="feature-foot">
+        <strong>Quer conhecer mais?</strong>
+        <p>Toque no botão abaixo para acessar a página do parceiro. A disponibilidade e as condições podem variar conforme a região.</p>
+        <a class="cta" id="mainCta" href="YOUR_AFFILIATE_URL" rel="nofollow sponsored">VER MAIS <span aria-hidden="true">➜</span></a>
+        <div class="tiny">Acesso restrito a maiores de 18 anos.</div>
+      </div>
+    </section>
+
+    <h2 class="gallery-title">Explore os destaques</h2>
+    <section class="gallery" aria-label="Banners promocionais">
+      <article class="tile"><img src="assets/zk8gK5T7cleHlRZM7Nn41Oh8Q340b1w8M1EA99Bv.jpg" alt="Banner SEXART"><div>Conteúdo adulto 18+</div></article>
+      <article class="tile"><img src="assets/paDCyasnAzTSamg5F2udVbqrlzR9JFOLJJWTjEag.jpg" alt="Banner promocional SEXART"><div>Ver mais</div></article>
+      <article class="tile"><img src="assets/xOHOkjn7DdhIoz0cfm4KLOVEN85hcDu1xusyAERi.jpg" alt="Banner XXX vídeos"><div>Área para adultos</div></article>
+    </section>
+
+    <div style="text-align:center">
+      <a class="cta" href="YOUR_AFFILIATE_URL" rel="nofollow sponsored">ACESSAR AGORA <span aria-hidden="true">➜</span></a>
+    </div>
+  </main>
+
+  <footer class="bottom wrap">
+    <p>© SEXART · Conteúdo destinado exclusivamente a adultos (18+).</p>
+    <p>Este é um material promocional. Ao clicar, você será direcionado a um site de terceiros, sujeito aos próprios termos e políticas.</p>
+    <p><a href="#" onclick="alert('Adicione aqui o link da sua política de privacidade.');return false">Privacidade</a> · <a href="#" onclick="alert('Adicione aqui o link dos termos de uso.');return false">Termos</a></p>
+  </footer>
 
   <script>
-    const OFFER_URL = "https://singingfiles.com/show.php?l=0&u=1339522&id=75529";
-    document.getElementById("offerBtn").href = OFFER_URL;
-
-    function nextStep(stepNum, progress) {
-      document.querySelectorAll(".step").forEach(el => el.classList.remove("active"));
-      document.getElementById("step" + stepNum).classList.add("active");
-      document.getElementById("progressBar").style.width = progress + "%";
-    }
-
-    function startLoading() {
-      document.querySelectorAll(".step").forEach(el => el.classList.remove("active"));
-      document.getElementById("stepLoading").classList.add("active");
-      document.getElementById("progressBar").style.width = "100%";
-
-      setTimeout(() => {
-        document.getElementById("stepLoading").classList.remove("active");
-        document.getElementById("stepFinal").classList.add("active");
-      }, 1400);
-    }
-
-    // ===== Canvas Floating Golden & Rose Sparkles =====
-    const canvas = document.getElementById("sparklesCanvas");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-    const particleCount = 55;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    class Sparkle {
-      constructor() {
-        this.reset(true);
-      }
-      reset(initial = false) {
-        this.x = Math.random() * canvas.width;
-        this.y = initial ? Math.random() * canvas.height : canvas.height + 15;
-        this.size = Math.random() * 2.6 + 0.8;
-        this.speedY = Math.random() * 0.55 + 0.2;
-        this.speedX = (Math.random() - 0.5) * 0.3;
-        this.alpha = Math.random() * 0.65 + 0.2;
-        this.twinkleSpeed = Math.random() * 0.02 + 0.008;
-        this.twinkleDir = 1;
-        const colors = ["#ffffff", "#ffe2b8", "#ffc2d1", "#ffb3c6"];
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      update() {
-        this.y -= this.speedY;
-        this.x += this.speedX;
-        this.alpha += this.twinkleSpeed * this.twinkleDir;
-        if (this.alpha >= 0.9 || this.alpha <= 0.15) this.twinkleDir *= -1;
-        if (this.y < -15) this.reset(false);
-      }
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Sparkle());
-    }
-
-    function animateSparkles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let p of particles) {
-        p.update();
-        p.draw();
-      }
-      requestAnimationFrame(animateSparkles);
-    }
-    animateSparkles();
+    const gate = document.getElementById('ageGate');
+    document.getElementById('confirmAge').addEventListener('click', () => {
+      gate.classList.add('hidden');
+      sessionStorage.setItem('sexart_age_confirmed', 'yes');
+    });
+    document.getElementById('leavePage').addEventListener('click', () => {
+      document.body.innerHTML = '<main style="min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px;color:white;font-family:Arial"><h2>Você precisa ter 18 anos ou mais para acessar este conteúdo.</h2></main>';
+    });
+    if (sessionStorage.getItem('sexart_age_confirmed') === 'yes') gate.classList.add('hidden');
   </script>
-
 </body>
 </html>
