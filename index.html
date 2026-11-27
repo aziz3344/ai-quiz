@@ -19,7 +19,6 @@
       --pink-glow: rgba(240, 24, 181, 0.35);
       --bg-body: #0b0c12;
       --bg-card: #15161d;
-      --bg-elevated: #1e1f29;
       --text-main: #ffffff;
       --text-muted: #a8a5b5;
       --border-subtle: rgba(255, 255, 255, 0.08);
@@ -45,10 +44,6 @@
         radial-gradient(circle at 80% 100%, rgba(46, 79, 139, 0.25), transparent 50%),
         var(--bg-body);
       -webkit-font-smoothing: antialiased;
-    }
-
-    body.modal-open {
-      overflow: hidden;
     }
 
     /* Main Container */
@@ -310,96 +305,6 @@
       border-top: 1px solid var(--border-subtle);
     }
 
-    /* Age Verification Modal */
-    .age-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      background: rgba(6, 6, 12, 0.9);
-      backdrop-filter: blur(12px);
-      opacity: 1;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .age-screen.is-hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .age-box {
-      width: min(100%, 400px);
-      padding: 32px 24px;
-      text-align: center;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-pink);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75);
-    }
-
-    .age-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 16px;
-      border-radius: 50%;
-      border: 2px solid var(--pink);
-      background: rgba(240, 24, 181, 0.12);
-      color: var(--pink);
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      font-size: 18px;
-    }
-
-    .age-box h2 {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .age-box p {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .age-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .age-actions button {
-      border: 0;
-      border-radius: 10px;
-      padding: 14px 10px;
-      font-family: inherit;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-      transition: transform 0.18s ease, filter 0.18s ease;
-    }
-
-    .age-actions button:hover {
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-    }
-
-    .btn-enter {
-      color: #fff;
-      background: linear-gradient(180deg, var(--pink), var(--pink-dark));
-      box-shadow: 0 6px 20px var(--pink-glow);
-    }
-
-    .btn-leave {
-      color: #e2e0eb;
-      background: #2f303d;
-    }
-
     /* Animations */
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -431,20 +336,7 @@
     }
   </style>
 </head>
-<body class="modal-open">
-
-  <!-- Age Gate Modal -->
-  <div class="age-screen" id="ageScreen" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
-    <div class="age-box">
-      <div class="age-icon" aria-hidden="true">18+</div>
-      <h2 id="ageTitle">Samo za odrasle</h2>
-      <p>Ova stranica je namenjena isključivo punoletnim osobama. Potvrdi da imaš najmanje 18 godina da nastaviš.</p>
-      <div class="age-actions">
-        <button type="button" class="btn-enter" id="confirmAge">Imam 18+</button>
-        <button type="button" class="btn-leave" id="leavePage">Napusti</button>
-      </div>
-    </div>
-  </div>
+<body>
 
   <!-- Main Landing Page -->
   <div class="page">
@@ -487,39 +379,11 @@
 
   <script>
     (() => {
-      // === الإعدادات الرئيسية (عدّل الروابط هنا فقط) ===
-      const CONFIG = {
-        offerUrl: 'https://quwjsmz.com/cl/1bfe32904c3d54a8?p1={click_id}&p2={format}&source=trafficstars&site={site_id}',
-        leaveUrl: 'https://www.google.com/',
-        storageKey: 'adultConfirmed_v1'
-      };
+      // بدّل YOUR_OFFER_URL برابط العرض ديالك هنا
+      const offerUrl = 'https://quwjsmz.com/cl/1bfe32904c3d54a8?p1={click_id}&p2={format}&source=trafficstars&site={site_id}';
 
-      const ageScreen = document.getElementById('ageScreen');
-      const confirmBtn = document.getElementById('confirmAge');
-      const leaveBtn = document.getElementById('leavePage');
-
-      const hideModal = () => {
-        ageScreen.classList.add('is-hidden');
-        document.body.classList.remove('modal-open');
-      };
-
-      // التحقق من الجلسة السابقة
-      if (sessionStorage.getItem(CONFIG.storageKey) === '1') {
-        hideModal();
-      }
-
-      confirmBtn.addEventListener('click', () => {
-        sessionStorage.setItem(CONFIG.storageKey, '1');
-        hideModal();
-      });
-
-      leaveBtn.addEventListener('click', () => {
-        window.location.href = CONFIG.leaveUrl;
-      });
-
-      // تطبيق رابط العرض على جميع الأزرار والصور
       document.querySelectorAll('.offer-link').forEach(link => {
-        link.href = CONFIG.offerUrl;
+        link.href = offerUrl;
       });
     })();
   </script>
